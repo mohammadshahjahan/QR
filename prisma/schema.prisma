@@ -26,6 +26,9 @@ model User{
   staticwebsites StaticWebsite[]
   staticsms StaticSMS[]
   staticemails StaticEmail[]
+  dynamicwebsites DyanamicWebsite[]
+  dynamicsms DyanamicSMS[]
+  dynamicemails DyanamicEmail[]
  
 }
 
@@ -55,6 +58,40 @@ model StaticEmail{
   goToMail String
   createdAt DateTime @default(now())
   userId String @db.ObjectId
+  name String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model DyanamicWebsite{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  goToURL String
+  createdAt DateTime @default(now())
+  userId String @db.ObjectId
+  proxyURL String
+  name String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model DyanamicSMS{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  countryCode String
+  phoneNumber String
+  createdAt DateTime @default(now())
+  userId String @db.ObjectId
+  proxyURL String
+  name String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model DyanamicEmail{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  goToMail String
+  createdAt DateTime @default(now())
+  userId String @db.ObjectId
+  proxyURL String
   name String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
