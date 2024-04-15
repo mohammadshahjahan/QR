@@ -34,6 +34,7 @@ model StaticWebsite{
   goToURL String
   createdAt DateTime @default(now())
   userId String @db.ObjectId
+  name String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
@@ -44,6 +45,7 @@ model StaticSMS{
   phoneNumber String
   createdAt DateTime @default(now())
   userId String @db.ObjectId
+  name String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
@@ -53,6 +55,7 @@ model StaticEmail{
   goToMail String
   createdAt DateTime @default(now())
   userId String @db.ObjectId
+  name String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
