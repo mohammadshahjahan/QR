@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import axios from "axios";
-import { log } from "console";
 import { Button } from "@/components/ui/button";
 
 const SignInPage = () => {
