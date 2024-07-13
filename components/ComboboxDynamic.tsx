@@ -26,6 +26,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import useStaticCurrentType from "@/libs/store/useStaticCurrentType";
+import useDynamicCurrentType from "@/libs/store/useDynamicCurrentType";
 
 type Status = {
   value: string;
@@ -56,7 +57,7 @@ export function ComboboxStatic() {
   const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(
     null
   );
-  const currStat = useStaticCurrentType();
+  const currStat = useDynamicCurrentType();
 
   return (
     <div className="flex items-center space-x-4">

@@ -22,5 +22,28 @@ export async function GET(
     },
   });
 
-  return NextResponse.json({ staticEmailQrs, staticWebsitesQrs, staticSMSQrs });
+  const dynamicWebsitesQrs = await prisma.dyanamicWebsite.findMany({
+    where: {
+      userId: id,
+    },
+  });
+  const dynamicEmailQrs = await prisma.dyanamicEmail.findMany({
+    where: {
+      userId: id,
+    },
+  });
+  const dynamicSMSQrs = await prisma.dyanamicSMS.findMany({
+    where: {
+      userId: id,
+    },
+  });
+
+  return NextResponse.json({
+    staticEmailQrs,
+    staticWebsitesQrs,
+    staticSMSQrs,
+    dynamicEmailQrs,
+    dynamicWebsitesQrs,
+    dynamicSMSQrs,
+  });
 }

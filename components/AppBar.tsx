@@ -42,7 +42,7 @@ const AppBar = () => {
                 onClick={() => router.push("/")}
               />
               <div className=" flex space-x-3">
-                <div className="">
+                <div className="cursor-pointer">
                   <Button
                     size="sm"
                     variant="outline"
@@ -52,7 +52,7 @@ const AppBar = () => {
                     <span>Log Out</span>
                   </Button>
                 </div>
-                <div className="text-sm">
+                <div className="text-sm cursor-pointer">
                   <Button
                     size="sm"
                     asChild
